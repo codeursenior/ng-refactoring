@@ -1,4 +1,4 @@
-# Worksshop Refactoring - Pôle Web
+# Workshop Refactoring - Pôle Web
 
 A repository for practicing refactoring based on the reference book "Refactoring" by Martin Fowler in the context of an Angular application.
 
