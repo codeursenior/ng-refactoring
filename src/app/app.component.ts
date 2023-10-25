@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   result = '';
 
   ngOnInit() {
-    this.statement(invoices, plays);
+    this.result = this.statement(invoices, plays);
   }
 
   statement(invoice: any, plays: any) {
