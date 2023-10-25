@@ -155,16 +155,89 @@ Our next move, then, is to replace some of them.
 
 The easiest one is `format`.
 
-This is a case of assigning 
+This is a case of assigning a function to a temp, which I prefer to replace with a declared function. 
+
+So we extract function `format(aNumber)` :
+
+```ts
+format(aNumber) {
+  return new Intl
+    .NumberFormat("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 2})
+    .format(aNumber);
+}
+```
+
+- [ ] Apply refactoring *Extract Function*. 
+- [ ] Verifiy than the code is always working.
+- [ ] Commit this valuable refactoring.
+
+Now I'm not keen on the name - `"format"` doesn't really convey enough of what it's doing.
+
+`"formatAsUSD"` would be a bit too long-winded since it's being used in a string template, particularly within this small scope.
+
+I think the the fact that it's formatting a currency amount is the thing to hightlight here, so I pick a name that suggests that and apply *Change Function Declaration* to `usd`.
+
+- [ ] Apply refactoring *Change Function Declaration*. 
+- [ ] Verifiy than the code is always working.
+- [ ] Commit this valuable refactoring.
+
 
 ### Refactoring #6 : Removing Total Volume Credits
+Our next target variable is `volumeCredits`. 
+This is a trickier case, as it's build up during the iterations of the loop. 
 
+My first move, then, is to use refactoring *Split Loop* to seperate the accumulation of `volumeCredits` in method `statement`.
 
+- [ ] Apply refactoring *Split Loop*. 
+- [ ] Verifiy than the code is always working.
+- [ ] Commit this valuable refactoring.
 
-### Refactoring #7 : How to keep improve the internal structure of our codebase ? (Make it fast)
+With that done, we can use refactoring *Slide Statements* to move the declaration of the variable next to the loop. 
 
-Now the code has move from "Make it work" to Make it right. It's more easy to update...
+- [ ] Apply refactoring *Slide Statements*. 
+- [ ] Verifiy than the code is always working.
+- [ ] Commit this valuable refactoring.
 
-But we can increase SPEED of our code base from now. It can be valuable if a lot mainteanbility or flexibility is need on this part of our code...
+Gathering together everything that updates the volumeCredits variable to makes it easier to do *Replace Temp with Query*.
+As before, the first step is to apply *Extract Function* by createting a new method `totalVolumeCredits()` to do the overall calculation of the variable : 
 
-=> 3 suggestions...
+```ts
+totalVolumeCredits() {
+  let volumeCredits = 0;
+  for (let perf of invoice.performances) {
+    volumeCredits += volumeCreditsFor(perf);
+  }
+  return volumeCredits;
+}
+```
+
+- [ ] Apply refactoring *Extract Function*. 
+- [ ] Verifiy than the code is always working.
+- [ ] Commit this valuable refactoring.
+
+Once everything is extracted, we can apply *Inline Variable* to remove temp variable `volumeCredits` : 
+
+- [ ] Apply refactoring *Inline Variable*. 
+- [ ] Verifiy than the code is always working.
+- [ ] Commit this valuable refactoring.
+
+Then we can repeat the whole process to remove `totalAmount`.
+We can apply the last 4 commit in the same order.
+
+- [ ] Apply refactoring *Split Loop*, *Slide Statements*, *Extract function* and *Inline Variable*. 
+- [ ] Verifiy than the code is always working.
+- [ ] Commit this valuable refactoring.
+
+### Refactoring #7 : How can we continue to improve the internal structure of our code base? (Do it quick)
+
+Now the code has move from "Make it work" to "Make it right". It is much easier to evolve quickly.
+
+But we can increase SPEED of our codebase from now, by accelerating the maintainability, flexibility and testability of our code.
+
+Here are some suggestions if you still have time to continue refactoring your codebase:
+
+1) Splitting the Phases of Calculation and Formatting.
+
+2) Creating a Performance Calculator with Strategy Pattern.
+
+3) Ensure that the code is battle unit-tested to enable future safe refactoring.
