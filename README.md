@@ -1,4 +1,4 @@
-# NgRefactoring
+# Worksshop Refactoring - Pôle Web
 
 A repository for practicing refactoring based on the reference book "Refactoring" by Martin Fowler in the context of an Angular application.
 
@@ -226,7 +226,7 @@ We can apply the last 4 commit in the same order.
 - [ ] Verifiy than the code is always working.
 - [ ] Commit this valuable refactoring.
 
-### Refactoring #7 : How can we continue to improve the internal structure of our code base? (Do it quick)
+### Refactoring #7 : How can we continue to improve the internal structure of our code base? (Make it fast)
 
 Now the code has move from "Make it work" to "Make it right". It is much easier to evolve quickly.
 
