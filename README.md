@@ -11,25 +11,23 @@ The webapp will be automatically opened in your browser at `http://localhost:420
 
 > 🐱‍👤 The application will automatically reload if you change any of the source files.
 
+## Code scaffolding
+
+You need to work in the `src/app/app.component.ts` folder.
+
+You can also check the `app.component.html` display file.
+
 
 ## Useful resources
+The following links will be useful to you throughout the workshop:
+
 - Catalog of code smells : https://refactoring.guru/fr/refactoring/smells 
 - Catalog of refactorings with explication : https://refactoring.guru/fr/refactoring/catalog
 - Catalog of refactorings with before/after code exemple : https://refactoring.com/catalog/
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-
-## Pro tip
-
-Run `ng test` to execute the unit tests.
-Start build solid suite of unit tests before start refactoring !
-
 ## Let's start refactoring this codebase !
 
-> All *Refactoring* are in italic. You can find them in the catalogue.
+> All *Refactoring* are in italic. You can find them in the catalogue !
 
 ### Refactoring #1 : Decomposing the `statement` method
 Look at the main method `statement` in `app.component.ts`.
